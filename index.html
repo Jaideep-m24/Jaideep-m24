@@ -3,437 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manchikanti Venkata Jaideep Datta | Hardware & Embedded Engineering</title>
-    <!-- Tailwind CSS CDN for fluid responsive utility structure -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'media',
-            theme: {
-                extend: {
-                    colors: {
-                        brandGreen: '#2ea44f',
-                        brandGreenDark: '#22863a',
-                        altiumBg: '#0f1115'
-                    },
-                    fontFamily: {
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
-                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Manchikanti Venkata Jaideep Datta – Hardware & Embedded Systems</title>
     <style>
-        /* Base Reset & Dynamic Color Tokens */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
-            --bg-color: #fafbfc;
-            --text-main: #1b1f23;
-            --text-muted: #586069;
-            --border-color: #d0d7de;
-            --accent-green: #22863a; 
-            --accent-green-dim: rgba(34, 134, 58, 0.08);
-            --bg-card: #ffffff;
-            --code-bg: #f6f8fa;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #0d1117;
-                --text-main: #c9d1d9;
-                --text-muted: #8b949e;
-                --border-color: #30363d;
-                --accent-green: #3fb950;
-                --accent-green-dim: rgba(63, 185, 80, 0.12);
-                --bg-card: #161b22;
-                --code-bg: #161b22;
-            }
-        }
-
-        * {
-            box-sizing: border-box;
+            --bg: #0f1117;
+            --surface: #1a1d27;
+            --surface-hover: #222633;
+            --border: #2a2e3d;
+            --text: #e2e4ea;
+            --text-muted: #8b90a0;
+            --accent: #2ea44f;
+            --accent-dim: rgba(46, 164, 79, 0.12);
+            --blue: #4dabf7;
+            --blue-dim: rgba(77, 171, 247, 0.12);
+            --purple: #b197fc;
+            --purple-dim: rgba(177, 151, 252, 0.12);
+            --radius: 10px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            margin: 0;
-            padding: 40px 16px;
+            min-height: 100vh;
         }
 
-        .portfolio-wrapper {
-            max-width: 920px;
+        .hero {
+            text-align: center;
+            padding: 4rem 1.5rem 2.5rem;
+            max-width: 820px;
             margin: 0 auto;
         }
 
-        /* Technical Specification Header Badge */
-        .tech-specs-bar {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace;
-            font-size: 0.8rem;
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero .subtitle {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            background: var(--code-bg);
-            padding: 10px 14px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
+            margin-bottom: 1.25rem;
         }
 
-        .tech-specs-bar span strong {
-            color: var(--text-main);
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 680px;
+            margin: 0 auto;
         }
 
-        /* Project Card Styling */
-        .project-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 24px;
-            position: relative;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        .hero .links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .project-card:hover {
-            border-color: var(--accent-green);
+        .hero .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
         }
 
-        .project-tech-tags {
-            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace;
-            font-size: 0.75rem;
-            background: var(--accent-green-dim);
-            border: 1px solid var(--border-color);
-            color: var(--accent-green);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
+        .hero .links a:hover { color: var(--accent); }
+
+        .hero .links a svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
 
-        /* Embed Container for Altium 365 Viewer */
-        .altium-embed-wrapper {
-            margin: 20px 0;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            overflow: hidden;
-            background-color: #12141a;
-            min-height: 480px;
-            width: 100%;
-            position: relative;
-        }
-
-        /* Engineering Spec Table inside Project Cards */
-        .spec-grid {
+        .grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 10px;
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 12px;
-            margin: 16px 0;
-            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace;
-            font-size: 0.78rem;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1.25rem;
         }
 
-        .spec-item {
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            color: inherit;
+            transition: background 0.2s, border-color 0.2s;
             display: flex;
             flex-direction: column;
         }
 
-        .spec-label {
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .card:hover {
+            border-color: #3e4457;
         }
 
-        .spec-val {
-            color: var(--text-main);
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.15rem;
             font-weight: 600;
+            line-height: 1.3;
         }
 
-        /* Action Buttons */
-        .btn {
+        .tag {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background: var(--accent-dim);
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .tag.firmware { color: var(--blue); background: var(--blue-dim); }
+        .tag.bio { color: var(--purple); background: var(--purple-dim); }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        .specs-mini {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.78rem;
+            color: #72778a;
+            border-top: 1px border-bottom 1px;
+            border-top: 1px solid var(--border);
+            padding-top: 0.75rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .specs-mini span strong {
+            color: var(--text);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-view {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--accent);
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
             font-size: 0.825rem;
             font-weight: 600;
-            text-decoration: none;
-            padding: 7px 14px;
-            border-radius: 5px;
-            transition: all 0.15s ease;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            transition: all 0.2s ease;
         }
 
-        .btn-primary {
-            background-color: var(--accent-green);
-            color: #ffffff !important;
-            border: 1px solid var(--accent-green);
+        .btn-view:hover {
+            background: var(--accent-dim);
+            border-color: var(--accent);
         }
 
-        .btn-primary:hover {
-            opacity: 0.9;
+        .btn-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.825rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
         }
 
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
+        .btn-link:hover {
+            color: var(--text);
         }
 
-        .btn-secondary:hover {
-            background-color: var(--code-bg);
-            border-color: var(--text-muted);
+        /* Inline Viewer Drawer */
+        .viewer-container {
+            display: none;
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .viewer-container.active {
+            display: block;
+        }
+
+        .altium-frame {
+            width: 100%;
+            height: 480px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: #000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover { color: var(--accent); }
+
+        footer details {
+            margin-top: 1rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer summary {
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        footer summary:hover { color: var(--text); }
+
+        .disclaimer {
+            margin-top: 0.75rem;
+            text-align: left;
+            font-size: 0.75rem;
+            line-height: 1.5;
+            color: #6b7080;
+        }
+
+        .disclaimer p { margin-bottom: 0.5rem; }
+
+        @media (max-width: 650px) {
+            .hero { padding: 3rem 1.25rem 2rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .grid { grid-template-columns: 1fr; padding: 0 1.25rem 3rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="portfolio-wrapper">
-
-    <!-- Header / Engineering Profile Section -->
-    <header class="mb-10 pb-8 border-b border-[var(--border-color)]">
-        <div class="flex justify-between items-baseline flex-wrap gap-2">
-            <h1 class="text-3xl font-bold tracking-tight text-[var(--text-main)]">Manchikanti Venkata Jaideep Datta</h1>
-            <span class="font-mono text-xs text-[var(--text-muted)]">LOC: Hyderabad, IN / Remote</span>
-        </div>
+    <!-- Hero Header Section -->
+    <header class="hero">
+        <h1><span>Jaideep Datta</span> – Engineering Portfolio</h1>
+        <div class="subtitle">SYS_ARCH // Hardware Design, Mixed-Signal PCBs & Bare-Metal Firmware</div>
+        <p>A showcase of mixed-signal hardware layouts, biopotential sensing front-ends, and low-latency embedded firmware architectures. Click any CAD project to interactively inspect its layers on this page.</p>
         
-        <div class="font-mono text-sm font-semibold text-[var(--accent-green)] mt-1 mb-4">
-            SYS_ARCH // Hardware, Embedded Firmware & Biomedical Systems Engineer
-        </div>
-        
-        <p class="text-base text-[var(--text-muted)] max-w-3xl mb-5">
-            Specializing in mixed-signal PCB layout (Altium Designer), biopotential sensor front-ends, low-noise analog routing, and deterministic bare-metal firmware (C/C++). Experienced in taking biomedical instrumentation and edge-AI control interfaces from early schematic modeling through stackup calculations to prototype bench testing.
-        </p>
-        
-        <!-- Live Technical Stats Bar -->
-        <div class="tech-specs-bar">
-            <span>CAD: <strong>Altium Designer / KiCad</strong></span>
-            <span>MCUs: <strong>STM32 (Cortex-M4/M7), ESP32-S3, Nordic nRF52</strong></span>
-            <span>FW: <strong>Bare-Metal C / FreeRTOS / DMA Architecture</strong></span>
-            <span>PROTOCOLS: <strong>SPI, I2C, UART, BLE, USB-FS</strong></span>
-        </div>
+        <nav class="links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+                GitHub
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                LinkedIn
+            </a>
+            <a href="mailto:contact@domain.com">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                Email Contact
+            </a>
+        </nav>
     </header>
 
-    <!-- Main Hardware & Embedded Systems Projects -->
-    <section class="mb-12">
-        <h2 class="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-6 flex items-center gap-2">
-            <span>// Featured Engineering Systems</span>
-            <span class="h-[1px] bg-[var(--border-color)] flex-grow"></span>
-        </h2>
+    <!-- Main Grid Section -->
+    <main class="grid">
 
-        <div class="project-list flex flex-col gap-8">
+        <!-- Card 1: ST1VAFE3BX -->
+        <div class="card">
+            <div class="card-header">
+                <h2>ST1VAFE3BX Breakout Board</h2>
+                <span class="tag">Altium · PCB</span>
+            </div>
+            <p>Evaluation platform for ST1VAFE3BX sensor architecture featuring impedance matching and isolated analog/digital ground zones.</p>
             
-            <!-- PROJECT 1: ST1VAFE3BX Breakout & Validation Board (With Embedded Altium 365 Viewer) -->
-            <div class="project-card">
-                <div class="flex justify-between items-start flex-wrap gap-2 mb-3">
-                    <h3 class="text-lg font-semibold text-[var(--text-main)]">ST1VAFE3BX Sensor Breakout & Validation Platform</h3>
-                    <span class="project-tech-tags">Altium Designer · 4-Layer PCB · Mixed-Signal</span>
-                </div>
-
-                <p class="text-sm text-[var(--text-muted)] mb-3">
-                    Engineered a multi-layer evaluation PCB designed around STMicroelectronics' ST1VAFE3BX biomechanical sensor architecture. Features strict trace impedance matching, full analog ground plane isolation, low-pass RC filter network integration, and dedicated low-noise LDO power decoupling to prevent power rail noise during high-gain sensor validation.
-                </p>
-
-                <!-- Technical Specification Grid -->
-                <div class="spec-grid">
-                    <div class="spec-item">
-                        <span class="spec-label">Stackup</span>
-                        <span class="spec-val">4-Layer (SIG-GND-PWR-SIG)</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Board Core</span>
-                        <span class="spec-val">FR-4 (1.6mm Std)</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Interface Protocol</span>
-                        <span class="spec-val">SPI @ 10MHz / I2C</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Analog Front-End</span>
-                        <span class="spec-val">VAFE Embedded Driver</span>
-                    </div>
-                </div>
-
-                <!-- Standalone Embedded Interactive Altium 365 CAD Viewer -->
-                <div class="my-4">
-                    <div class="flex justify-between items-center mb-2 px-1">
-                        <span class="font-mono text-xs font-semibold text-[var(--accent-green)] flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-[var(--accent-green)] inline-block animate-pulse"></span>
-                            Interactive PCB Viewport (2D / 3D / Schematic)
-                        </span>
-                        <span class="font-mono text-[10px] text-[var(--text-muted)]">Powered by Altium 365 Web Engine</span>
-                    </div>
-
-                    <div class="altium-embed-wrapper">
-                        <!-- Official Altium 365 Viewer Script & Container Embed -->
-                        <script src="https://viewer.altium.com/client/static/embed.js" 
-                                type="text/javascript" 
-                                data-project-src="https://365.altium.com/files/FCCFE0F5-8D67-4F83-94FD-09FA299F30B7">
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Action Links -->
-                <div class="action-links flex gap-3 flex-wrap mt-4">
-                    <a href="https://365.altium.com/files/FCCFE0F5-8D67-4F83-94FD-09FA299F30B7" target="_blank" class="btn btn-primary">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        Open Fullscreen in Altium 365
-                    </a>
-                    <a href="https://github.com/jaideepdatta" target="_blank" class="btn btn-secondary">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        Design Files & BOM
-                    </a>
-                </div>
+            <div class="specs-mini">
+                <span>Stackup: <strong>4-Layer Controlled Impedance</strong></span>
+                <span>AFE: <strong>Low-Noise RC Decoupling Array</strong></span>
             </div>
 
-            <!-- PROJECT 2: ADS1292 ECG/EMG Biomedical Front-End -->
-            <div class="project-card">
-                <div class="flex justify-between items-start flex-wrap gap-2 mb-3">
-                    <h3 class="text-lg font-semibold text-[var(--text-main)]">ADS1292 Low-Noise ECG/EMG Biopotential Acquisition Board</h3>
-                    <span class="project-tech-tags">Mixed-Signal · Bio-AFE · Low-Noise PCB</span>
-                </div>
-
-                <p class="text-sm text-[var(--text-muted)] mb-3">
-                    Designed a 2-channel analog front-end acquisition board based on Texas Instruments' ADS1292 24-bit delta-sigma ADC. Built for microvolt-level biopotential signal extraction (ECG/EMG) with integrated Right Leg Drive (RLD) feedback circuitry for common-mode rejection ratio (CMRR) optimization and lead-off detection.
-                </p>
-
-                <div class="spec-grid">
-                    <div class="spec-item">
-                        <span class="spec-label">ADC Resolution</span>
-                        <span class="spec-val">24-Bit Delta-Sigma</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">CMRR Performance</span>
-                        <span class="spec-val">> 105 dB with RLD</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Sampling Rate</span>
-                        <span class="spec-val">125 SPS to 8 kSPS</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Host Communication</span>
-                        <span class="spec-val">SPI with DMA Buffer</span>
-                    </div>
-                </div>
-
-                <div class="action-links flex gap-3 flex-wrap mt-4">
-                    <a href="https://github.com/jaideepdatta" target="_blank" class="btn btn-secondary">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        Schematics & Gerber Package
-                    </a>
-                </div>
+            <div class="card-actions">
+                <button class="btn-view" onclick="toggleViewer('viewer-st1v', 'https://365.altium.com/files/FCCFE0F5-8D67-4F83-94FD-09FA299F30B7')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    View Interactive PCB
+                </button>
+                <a class="btn-link" href="https://github.com" target="_blank">Repository &rarr;</a>
             </div>
 
-            <!-- PROJECT 3: MedYantra Edge AI Head-Control Interface -->
-            <div class="project-card">
-                <div class="flex justify-between items-start flex-wrap gap-2 mb-3">
-                    <h3 class="text-lg font-semibold text-[var(--text-main)]">MedYantra Edge AI Head Control Interface</h3>
-                    <span class="project-tech-tags">ESP32-S3 · Bare-Metal C · Edge-AI / IMU</span>
-                </div>
-
-                <p class="text-sm text-[var(--text-muted)] mb-3">
-                    Developed a real-time assistive technology interface converting head orientation and motion vectors into precision cursor navigation and control inputs. Implemented low-latency 6-axis IMU quaternion estimation filtering and embedded TinyML gesture classification running directly on an ESP32-S3 microcontroller core.
-                </p>
-
-                <div class="spec-grid">
-                    <div class="spec-item">
-                        <span class="spec-label">MCU Core</span>
-                        <span class="spec-val">ESP32-S3 (Dual 240MHz)</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Sensor Fusion</span>
-                        <span class="spec-val">Mahony / Madgwick Filter</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Latency</span>
-                        <span class="spec-val">&lt; 12 ms end-to-end</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Comm Profile</span>
-                        <span class="spec-val">BLE HID / USB Native</span>
-                    </div>
-                </div>
-
-                <div class="action-links flex gap-3 flex-wrap mt-4">
-                    <a href="https://github.com/jaideepdatta" target="_blank" class="btn btn-secondary">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        Firmware Source Code
-                    </a>
-                </div>
-            </div>
-
-            <!-- PROJECT 4: Wearable Gait & Plantar-Pressure Sensing System -->
-            <div class="project-card">
-                <div class="flex justify-between items-start flex-wrap gap-2 mb-3">
-                    <h3 class="text-lg font-semibold text-[var(--text-main)]">Wearable Gait & Plantar-Pressure Monitoring System</h3>
-                    <span class="project-tech-tags">nRF52840 · Low-Power BLE · FSR Matrix</span>
-                </div>
-
-                <p class="text-sm text-[var(--text-muted)] mb-3">
-                    Created a ultra-low-power wearable sensor array system for biomechanical gait analysis. Features a high-density Force Sensitive Resistor (FSR) matrix polled via timed analog multiplexing channels and streamed live over BLE 5.0 to a companion analysis dashboard.
-                </p>
-
-                <div class="action-links flex gap-3 flex-wrap mt-4">
-                    <a href="https://github.com/jaideepdatta" target="_blank" class="btn btn-secondary">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        Repository & Hardware Files
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Engineering Skills Matrix Section -->
-    <section class="mb-12">
-        <h2 class="font-mono text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-6 flex items-center gap-2">
-            <span>// Core Competencies</span>
-            <span class="h-[1px] bg-[var(--border-color)] flex-grow"></span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="p-4 border border-[var(--border-color)] bg-[var(--bg-card)] rounded-md">
-                <h4 class="font-mono text-xs font-bold uppercase text-[var(--accent-green)] mb-2">Hardware Design & Analysis</h4>
-                <ul class="text-xs text-[var(--text-muted)] space-y-1 list-disc list-inside">
-                    <li>Schematic Capture & PCB Layout (Altium Designer, KiCad)</li>
-                    <li>High-Speed & Mixed-Signal Signal Integrity Routing</li>
-                    <li>Controlled Impedance & Multilayer Stackup Engineering</li>
-                    <li>Analog Front-End (AFE) Design & Filtering (ECG, EMG, IMU)</li>
-                    <li>SMD Hand Soldering, Bench Testing & Logic Analyzer Debugging</li>
-                </ul>
-            </div>
-
-            <div class="p-4 border border-[var(--border-color)] bg-[var(--bg-card)] rounded-md">
-                <h4 class="font-mono text-xs font-bold uppercase text-[var(--accent-green)] mb-2">Embedded Firmware & Architecture</h4>
-                <ul class="text-xs text-[var(--text-muted)] space-y-1 list-disc list-inside">
-                    <li>Bare-Metal C / C++ for Resource-Constrained MCUs</li>
-                    <li>Hardware Peripheral Drivers (SPI, I2C, UART, DMA, Timers)</li>
-                    <li>Real-Time Operating Systems (FreeRTOS Task Management)</li>
-                    <li>Sensor Fusion (Accelerometers, Gyroscopes, Biopotentials)</li>
-                    <li>Wireless Protocols (Bluetooth Low Energy / BLE, ESP-NOW)</li>
-                </ul>
+            <!-- Embedded Altium 365 Container -->
+            <div id="viewer-st1v" class="viewer-container">
+                <div class="altium-frame" id="frame-st1v"></div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer / Contact Section -->
-    <footer class="mt-16 pt-6 border-t border-[var(--border-color)] text-xs text-[var(--text-muted)] flex justify-between items-center flex-wrap gap-4">
-        <div>
-            © 2026 <strong>Manchikanti Venkata Jaideep Datta</strong>
+        <!-- Card 2: ADS1292 Bio-AFE -->
+        <div class="card">
+            <div class="card-header">
+                <h2>ADS1292 ECG/EMG Front-End</h2>
+                <span class="tag bio">Bio-Signal</span>
+            </div>
+            <p>2-Channel 24-bit delta-sigma biopotential acquisition board with integrated Right-Leg Drive (RLD) for active common-mode noise suppression.</p>
+            
+            <div class="specs-mini">
+                <span>CMRR: <strong>> 105 dB with Active RLD</strong></span>
+                <span>ADC: <strong>24-Bit Delta-Sigma @ 8 kSPS</strong></span>
+            </div>
+
+            <div class="card-actions">
+                <a class="btn-link" href="https://github.com" target="_blank">View Schematic & Gerber &rarr;</a>
+            </div>
         </div>
-        <div class="flex gap-4 font-mono">
-            <a href="https://github.com/jaideepdatta" target="_blank" class="hover:text-[var(--accent-green)] transition-colors">GitHub</a>
-            <span>·</span>
-            <a href="https://linkedin.com/in/jaideepdatta" target="_blank" class="hover:text-[var(--accent-green)] transition-colors">LinkedIn</a>
-            <span>·</span>
-            <a href="mailto:jaideepdatta@example.com" class="hover:text-[var(--accent-green)] transition-colors">Contact Email</a>
+
+        <!-- Card 3: MedYantra Edge-AI -->
+        <div class="card">
+            <div class="card-header">
+                <h2>MedYantra Control Interface</h2>
+                <span class="tag firmware">Firmware</span>
+            </div>
+            <p>Bare-metal head orientation and gesture processing architecture with embedded Madgwick IMU quaternion filtering running on ESP32-S3.</p>
+            
+            <div class="specs-mini">
+                <span>Latency: <strong>&lt; 12 ms Real-Time Execution</strong></span>
+                <span>Core: <strong>ESP32-S3 / BLE HID Protocol</strong></span>
+            </div>
+
+            <div class="card-actions">
+                <a class="btn-link" href="https://github.com" target="_blank">View C Firmware &rarr;</a>
+            </div>
         </div>
+
+        <!-- Card 4: Plantar Pressure Shoe -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Gait & Plantar-Pressure Shoe</h2>
+                <span class="tag">Wearable</span>
+            </div>
+            <p>Low-power sensor system integrating an analog multiplexed FSR force matrix and ToF distance polling streamed live over BLE 5.0.</p>
+            
+            <div class="specs-mini">
+                <span>MCU: <strong>Nordic nRF52840 Low-Power</strong></span>
+                <span>Sensors: <strong>FSR Array + ToF + IMU</strong></span>
+            </div>
+
+            <div class="card-actions">
+                <a class="btn-link" href="https://github.com" target="_blank">View Hardware & Firmware &rarr;</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Block -->
+    <footer>
+        <p>Manchikanti Venkata Jaideep Datta &middot; <a href="https://github.com" target="_blank">GitHub</a> &middot; <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+        <details>
+            <summary>Engineering Disclaimer</summary>
+            <div class="disclaimer">
+                <p><strong>Educational & Reference Notice</strong> &mdash; Schematic representations, PCB layout files, firmware snippets, and associated engineering documentation provided on this site are intended for prototyping reference and technical evaluation purposes.</p>
+            </div>
+        </details>
     </footer>
 
-</div>
+    <!-- Script to dynamically manage Altium 365 Embed Injections -->
+    <script>
+        const loadedViewers = {};
 
+        function toggleViewer(containerId, projectSrc) {
+            const container = document.getElementById(containerId);
+            const frame = container.querySelector('.altium-frame');
+            
+            const isVisible = container.classList.contains('active');
+
+            if (isVisible) {
+                container.classList.remove('active');
+            } else {
+                container.classList.add('active');
+                
+                // Inject the official Altium 365 embed script on demand
+                if (!loadedViewers[containerId]) {
+                    const script = document.createElement('script');
+                    script.src = 'https://viewer.altium.com/client/static/embed.js';
+                    script.type = 'text/javascript';
+                    script.setAttribute('data-project-src', projectSrc);
+                    frame.appendChild(script);
+                    loadedViewers[containerId] = true;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
